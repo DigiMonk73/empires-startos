@@ -1,0 +1,3 @@
+[submodule "upstream-project"]
+	path = upstream-project
+	url = /Users/b1ackswan/code/Empires
