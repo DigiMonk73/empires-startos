@@ -1,18 +1,18 @@
 import { IMPOSSIBLE, VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '0.9.0:0',
+  version: '0.10.0:0',
   releaseNotes: {
     en_US:
-      'Every civilization now builds in its own architecture — Egyptian, Babylonian, Greek, Asian or Roman — changing with each age from Stone to Iron, each with its own towers and Wonder (a pyramid, a ziggurat, a Greek temple, a pagoda, an amphitheatre). New art for the Academy and the alligator, a picture for every technology, and a new look for the menus and panels with an emblem for each civilization. Games saved with 0.8.0 still load.',
+      'A living world: beaches along every coast, palm and pine trees, animated water with shore foam, burning and smoking buildings, dust behind horsemen and splashes at sea. Hills are in the game — units striking down from higher ground can do triple damage — with two new maps built around them, Highland and Hill Country. Games saved with 0.8.0 or 0.9.0 still load.',
     es_ES:
-      'Cada civilización construye ahora con su propia arquitectura —egipcia, babilónica, griega, asiática o romana—, que cambia en cada edad desde la Edad de Piedra hasta la del Hierro, con sus propias torres y su propia Maravilla (una pirámide, un zigurat, un templo griego, una pagoda, un anfiteatro). Nuevo arte para la Academia y el caimán, una imagen para cada tecnología y un nuevo aspecto para los menús y paneles, con un emblema para cada civilización. Las partidas guardadas con la 0.8.0 siguen cargándose.',
+      'Un mundo vivo: playas en todas las costas, palmeras y pinos, agua animada con espuma en la orilla, edificios que arden y humean, polvo tras los jinetes y salpicaduras en el mar. Llegan las colinas —las unidades que atacan desde más alto pueden causar el triple de daño— con dos mapas nuevos pensados para ellas, Tierras Altas y Colinas. Las partidas guardadas con la 0.8.0 o la 0.9.0 siguen cargándose.',
     de_DE:
-      'Jede Zivilisation baut jetzt in ihrer eigenen Architektur – ägyptisch, babylonisch, griechisch, asiatisch oder römisch –, die sich mit jedem Zeitalter von der Stein- bis zur Eisenzeit wandelt, mit eigenen Türmen und eigenem Weltwunder (eine Pyramide, eine Zikkurat, ein griechischer Tempel, eine Pagode, ein Amphitheater). Neue Grafiken für die Akademie und das Krokodil, ein Bild für jede Technologie und ein neues Aussehen für Menüs und Leisten mit einem Wappen für jede Zivilisation. Spielstände aus 0.8.0 lassen sich weiterhin laden.',
+      'Eine lebendige Welt: Strände an jeder Küste, Palmen und Kiefern, bewegtes Wasser mit Brandung, brennende und rauchende Gebäude, Staub hinter Reitern und Spritzer auf See. Hügel sind im Spiel – Einheiten, die von höher gelegenem Gelände angreifen, können dreifachen Schaden verursachen – mit zwei neuen Karten dafür, Hochland und Hügelland. Spielstände aus 0.8.0 oder 0.9.0 lassen sich weiterhin laden.',
     pl_PL:
-      'Każda cywilizacja buduje teraz we własnej architekturze — egipskiej, babilońskiej, greckiej, azjatyckiej lub rzymskiej — zmieniającej się w każdej epoce od kamienia do żelaza, z własnymi wieżami i własnym Cudem (piramida, ziggurat, grecka świątynia, pagoda, amfiteatr). Nowa grafika Akademii i aligatora, obraz dla każdej technologii oraz nowy wygląd menu i paneli z herbem każdej cywilizacji. Gry zapisane w 0.8.0 nadal się wczytują.',
+      'Żywy świat: plaże wzdłuż każdego wybrzeża, palmy i sosny, falująca woda z pianą przy brzegu, płonące i dymiące budynki, kurz za jeźdźcami i rozbryzgi na morzu. W grze są wzgórza — jednostki atakujące z wyższego terenu mogą zadać potrójne obrażenia — oraz dwie nowe mapy zbudowane wokół nich: Wyżyna i Kraina Wzgórz. Gry zapisane w 0.8.0 lub 0.9.0 nadal się wczytują.',
     fr_FR:
-      'Chaque civilisation construit désormais dans sa propre architecture — égyptienne, babylonienne, grecque, asiatique ou romaine —, qui évolue à chaque âge, de la pierre au fer, avec ses propres tours et sa propre Merveille (une pyramide, une ziggourat, un temple grec, une pagode, un amphithéâtre). Nouveaux visuels pour l’Académie et l’alligator, une image pour chaque technologie et un nouvel habillage des menus et des panneaux avec un emblème pour chaque civilisation. Les parties sauvegardées avec la 0.8.0 se chargent toujours.',
+      'Un monde vivant : des plages sur chaque côte, des palmiers et des pins, une eau animée avec de l’écume sur le rivage, des bâtiments qui brûlent et fument, de la poussière derrière les cavaliers et des éclaboussures en mer. Les collines arrivent — les unités qui frappent depuis un terrain plus élevé peuvent infliger des dégâts triples — avec deux nouvelles cartes conçues pour elles, Hautes Terres et Pays de collines. Les parties sauvegardées avec la 0.8.0 ou la 0.9.0 se chargent toujours.',
   },
   migrations: {
     up: async ({ effects }) => {},
