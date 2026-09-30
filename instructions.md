@@ -14,6 +14,14 @@
 1. Open the **Web Interface**. The main menu appears over a small village.
 2. Choose **Skirmish**, pick the map type and size, your civilization, and your computer opponents (Easiest to
    Hardest), then **Start Game**. The setup screen shows your civilization's bonuses and a **Tech Tree** button.
+3. Optional settings on the same screen:
+   - **Victory:** Standard (the default — conquest, or hold a Wonder, all the Artifacts or all the Ruins for 2000
+     years), Conquest, Score (first to a target score) or Time Limit (highest score when the time runs out).
+   - **Starting age:** Default, Nomad (no Town Center — build one first), Tool, Bronze, Iron or Post-Iron (every
+     technology already researched).
+   - **Population:** the unit limit, 25 to 200.
+   - **Full Tech Tree:** every civilization gets everything except the Fire Galley, and no civilization bonuses.
+   - **Reveal map.**
 
 ### Computer opponents
 
@@ -22,6 +30,8 @@
   villagers. **Hardest** also starts with 2,000 extra food, as in the original.
 - Each civilization plays to its strengths — archers, cavalry, elephants, chariots, hoplites or swordsmen.
 - Computers build temples and use priests to convert your most valuable units and heal their own.
+- In a Standard game they claim the Ruins and Artifacts near them, send their army at your Wonder or your relics
+  when your countdown runs, and the harder ones build a Wonder of their own.
 - In a free-for-all (every player on a different team), the computers are allied with each other. Some start at
   war with you and the rest neutral. A neutral computer turns on you if you attack it, or after about 12 minutes
   unless you send it 1,000 in tribute (Diplomacy button).
@@ -32,13 +42,18 @@
 
 - All four ages are playable — Stone, Tool, Bronze and Iron — with all 16 civilizations, each with its own
   bonuses and missing technologies. Temples and priests, siege weapons, walls and towers, and the Wonder are
-  all in the game. Win by conquering every opponent; a results screen follows the game.
+  all in the game. A results screen follows the game.
+- **Standard victory:** besides conquest, a finished Wonder — or holding every Artifact, or every Ruin — starts a
+  2000-year countdown (about 17 minutes at normal speed) shown at the upper right in its owner's colour; losing the
+  Wonder or one relic stops it. A unit standing beside a Ruin or an Artifact claims it; it changes hands only while
+  none of its owner's units stand by it. Each one held is worth 10 points.
 - **Tech Tree** (top bar) shows what you have researched and built, what you can get now, and what your
   civilization lacks.
 - Each civilization builds in its own style — Egyptian, Babylonian, Greek, Asian or Roman — and its buildings
   change as it advances through the ages. The setup screen shows each civilization's emblem.
-- **Hills:** on the Highland and Hill Country maps the ground rises and falls. Units striking down at a lower
-  target sometimes do triple damage, and buildings need level ground.
+- **Hills:** the ground rises and falls on every map (most on Highland and Hill Country). Units striking down at a
+  lower target sometimes do triple damage, and buildings need level ground.
+- **Wildlife:** lions roam the land and alligators the beaches — both attack villagers nearby; hunt them together.
 - **Water maps:** Coastal, Mediterranean, Narrows, Small Islands and Large Islands. Build a **Dock** for fishing
   boats, warships, transports and trade boats. Right-click fish with a boat to fish, an enemy ship to attack, your
   transport with soldiers to board it, and land with a loaded transport to land them there (or press **Unload**).
