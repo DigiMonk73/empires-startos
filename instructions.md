@@ -15,6 +15,17 @@
 2. Choose **Skirmish**, pick the map type and size, your civilization, and your computer opponents (Easiest to
    Hardest), then **Start Game**. The setup screen shows your civilization's bonuses and a **Tech Tree** button.
 
+### Computer opponents
+
+- Each level plays clearly better than the one below: the harder ones research more upgrades, attack only with
+  the stronger army, gang up on your weakest units, pull back from fights they would lose and defend their
+  villagers. **Hardest** also starts with 2,000 extra food, as in the original.
+- Each civilization plays to its strengths — archers, cavalry, elephants, chariots, hoplites or swordsmen.
+- Computers build temples and use priests to convert your most valuable units and heal their own.
+- In a free-for-all (every player on a different team), the computers are allied with each other. Some start at
+  war with you and the rest neutral. A neutral computer turns on you if you attack it, or after about 12 minutes
+  unless you send it 1,000 in tribute (Diplomacy button).
+
 ## Using Empires
 
 ### Web interface
@@ -69,4 +80,4 @@
 - The server keeps at most 100 saved games; delete some from **Load Game** to make room.
 - After an update, games saved with an older version may not load (games saved with 0.6.0 do not load in 0.8.0
   or later; games saved with 0.8.0 or later load in 0.12.0).
-- On island maps the computer players can take a long time to finish a war.
+- On the smallest island maps, a war that drags on can stall once both islands run out of wood.
