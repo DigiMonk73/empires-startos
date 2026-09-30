@@ -11,18 +11,23 @@
 
 ## Getting set up
 
-1. Open the **Web Interface**.
-2. This is an early development preview: it shows a scrollable map (arrow keys or edge scrolling, mouse wheel to
-   zoom). Skirmish games against computer opponents arrive in a later version.
+1. Open the **Web Interface**. The main menu appears over a small village.
+2. Choose **Skirmish**, pick the map type and size, your civilization, and your computer opponents (Easiest to
+   Hardest), then **Start Game**.
 
 ## Using Empires
 
 ### Web interface
 
-Saved games and settings are kept in the browser you play in. Use the same browser on the same device to
-continue a saved game.
+- The Stone, Tool and Bronze Ages are playable: gather, build, train villagers and soldiers, research, and win
+  by conquering every opponent. A results screen follows the game.
+- **Menu** (top right) pauses the game and offers game speed, sound on/off, **Save Game**, **Load Game**,
+  restart, resign and quit. **Load Game** is also on the main menu.
+- Saved games and settings are kept in the browser you play in. Use the same browser on the same device to
+  continue a saved game.
 
 ## Limitations
 
 - No multiplayer yet — each player plays their own game against the computer.
 - Clearing your browser's site data deletes your saved games.
+- After an update, games saved with an older version may not load.

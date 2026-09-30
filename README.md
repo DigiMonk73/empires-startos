@@ -104,7 +104,9 @@ nothing to recover; players' saved games live in their browsers and are not part
 ## Limitations and Differences
 
 - Single-player against computer opponents only; multiplayer is not available yet.
-- Saved games are stored per browser. Clearing site data, or switching browser or device, loses them.
+- Saved games are stored per browser (IndexedDB). Clearing site data, or switching browser or device, loses them.
+- A saved game records the game's simulation version; saves from a different version refuse to load after an
+  update.
 - The game needs a browser with WebGL2 (any current desktop browser).
 
 ---
