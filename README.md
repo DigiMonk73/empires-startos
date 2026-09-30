@@ -51,14 +51,14 @@ atlases under `baked/` keep their file names from one version to the next, so br
 
 ## Volume and Data Layout
 
-The package declares one volume so that future server-side features (saved games, multiplayer lobbies) have a
-home; the current game stores nothing on the server.
+| Volume | Mount point | Contents |
+| ------ | ----------- | -------- |
+| `main` | `/data`     | `saves/` — games saved **on the server** (one `<id>.save` file each; `DATA_DIR=/data`). Empty until a player saves there. |
 
-| Volume | Mount point | Contents                                                   |
-| ------ | ----------- | ---------------------------------------------------------- |
-| `main` | `/data`     | Empty today. Reserved for server-side saves (`DATA_DIR`). |
-
-Saved games and settings live in each player's browser storage, not on the server.
+Players choose where a game is saved: **This device** (the browser's own storage — including the rolling
+autosave) or **Server** (this volume, shared by everyone who opens the interface). A save file is the game's own
+format: `EMPS`, a version byte, a JSON header (name, time, map, age, the computer players' memory, the post-game
+graph samples) and the simulation's bytes. The server reads only the header to list saves.
 
 ## File Models
 
@@ -71,7 +71,20 @@ None.
 ## Network Access and Interfaces
 
 One HTTP interface serves the game. It is not password-protected: anyone who can reach the address can load
-and play the game, which exposes no data from the server.
+and play the game, and can list, load, overwrite and delete the games saved **on the server** (games saved on a
+player's own device are not visible to anyone else). The server holds nothing else.
+
+The same port answers the saved-games API used by the game:
+
+| Request | Does |
+| ------- | ---- |
+| `GET /api/saves` | Lists the server's saves, newest first (details only) |
+| `GET /api/saves/<id>` | Returns one save file |
+| `PUT /api/saves/<id>` | Stores or replaces a save (ids `[A-Za-z0-9_-]`, at most 64 characters; the file's own id must match) |
+| `DELETE /api/saves/<id>` | Deletes a save |
+
+Limits: 16 MB per save and 100 saves on the server (a new save beyond that is refused until some are deleted);
+writes go to a temporary file first, so a save is never left half-written.
 
 | Interface | ID   | Type | Container port | Purpose                     |
 | --------- | ---- | ---- | -------------- | --------------------------- |
@@ -101,13 +114,15 @@ A failing check means the Node server is not running; the service log shows why.
 
 ## Backups and Restore
 
-The `main` volume is backed up. It holds no data yet, so a restore returns the service to a working state with
-nothing to recover; players' saved games live in their browsers and are not part of StartOS backups.
+The `main` volume is backed up, so games saved **on the server** are in StartOS backups and come back with a
+restore. Games saved on a player's device (and the autosave) live in that browser and are not part of backups.
 
 ## Limitations and Differences
 
 - Single-player against computer opponents only; multiplayer is not available yet.
-- Saved games are stored per browser (IndexedDB). Clearing site data, or switching browser or device, loses them.
+- Games saved on **This device** are stored per browser (IndexedDB): clearing site data, or switching browser or
+  device, loses them. Save on the **Server** to keep a game across devices.
+- Server saves have no accounts: everyone who can open the interface shares one list of server saves.
 - A saved game records the game's simulation version; saves from a different version refuse to load after an
   update.
 - The game needs a browser with WebGL2 (any current desktop browser).
@@ -122,7 +137,7 @@ image: built from upstream-project/Dockerfile
 architectures: [x86_64, aarch64]
 subcontainers: [empires-sub]
 volumes:
-  main: /data
+  main: /data   # saves/ = server-side saved games (GET/PUT/DELETE /api/saves)
 file_models: []
 startos_managed_env_vars: []
 dependencies: none
