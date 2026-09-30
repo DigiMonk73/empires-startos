@@ -24,6 +24,8 @@
   all in the game. Win by conquering every opponent; a results screen follows the game.
 - **Tech Tree** (top bar) shows what you have researched and built, what you can get now, and what your
   civilization lacks.
+- Each civilization builds in its own style — Egyptian, Babylonian, Greek, Asian or Roman — and its buildings
+  change as it advances through the ages. The setup screen shows each civilization's emblem.
 - **Water maps:** Coastal, Mediterranean, Narrows, Small Islands and Large Islands. Build a **Dock** for fishing
   boats, warships, transports and trade boats. Right-click fish with a boat to fish, an enemy ship to attack, your
   transport with soldiers to board it, and land with a loaded transport to land them there (or press **Unload**).
@@ -38,5 +40,6 @@
 
 - No multiplayer yet — each player plays their own game against the computer.
 - Clearing your browser's site data deletes your saved games.
-- After an update, games saved with an older version may not load (games saved with 0.6.0 do not load in 0.8.0).
+- After an update, games saved with an older version may not load (games saved with 0.6.0 do not load in 0.8.0
+  or later; games saved with 0.8.0 load in 0.9.0).
 - On island maps the computer players can take a long time to finish a war.

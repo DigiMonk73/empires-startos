@@ -44,7 +44,10 @@ patched.
 | Entrypoint    | The image's own `CMD`: `node /app/server/serve.mjs` on port 80         |
 
 One subcontainer, `empires-sub`, runs the static server. The server has no dependencies beyond Node.js and
-answers `GET /healthz` with `{"ok":true,"service":"empires"}`.
+answers `GET /healthz` with `{"ok":true,"service":"empires"}`. It gzips text files (the sprite metadata
+`baked/metas.json` is ~2 MB raw). Only the hashed bundles under `assets/` are cached as immutable; the sprite
+atlases under `baked/` keep their file names from one version to the next, so browsers revalidate them
+(`Last-Modified` → `304`) and an update never shows old sprites against new metadata.
 
 ## Volume and Data Layout
 
