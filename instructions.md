@@ -33,9 +33,12 @@
   transport with soldiers to board it, and land with a loaded transport to land them there (or press **Unload**).
   Trade boats sell food, wood or stone at another player's Dock for gold.
 - **Repair:** right-click your damaged building, ship or siege weapon with villagers (or press **Repair**).
-- **Menu** (top right) pauses the game and offers game speed, sound on/off, **Save Game**, **Load Game**,
-  restart, resign and quit. **Load Game** is also on the main menu.
-- Saved games and settings are kept in the browser you play in. Use the same browser on the same device to
+- **Menu** (top right) pauses the game and offers game speed, sound on/off and volumes (master, music, effects,
+  voices), **Save Game**, **Load Game**, restart, resign and quit. **Load Game** and **Options** (the same sound
+  settings) are also on the main menu.
+- The music follows the game — calm in peace, tense when enemy soldiers are in sight, driving in battle — in the
+  style of your civilization; your units answer in its voice.
+- Saved games and settings (including sound) are kept in the browser you play in. Use the same browser on the same device to
   continue a saved game.
 
 ## Limitations
@@ -43,5 +46,5 @@
 - No multiplayer yet — each player plays their own game against the computer.
 - Clearing your browser's site data deletes your saved games.
 - After an update, games saved with an older version may not load (games saved with 0.6.0 do not load in 0.8.0
-  or later; games saved with 0.8.0 or 0.9.0 load in 0.10.0).
+  or later; games saved with 0.8.0 or later load in 0.11.0).
 - On island maps the computer players can take a long time to finish a war.
