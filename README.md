@@ -125,7 +125,9 @@ restore. Games saved on a player's device (and the autosave) live in that browse
 - Server saves have no accounts: everyone who can open the interface shares one list of server saves.
 - A saved game records the game's simulation version; saves from a different version refuse to load after an
   update.
-- The game needs a browser with WebGL2 (any current desktop browser).
+- The game needs a browser with WebGL2 (any current desktop browser). Its sprites are decoded in the browser's
+  graphics memory: a long game with many civilizations holds up to about 500 MB of them (sprites nothing on the map
+  shows are released as it goes); a device short of graphics memory slows down in such games.
 
 ---
 

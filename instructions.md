@@ -94,5 +94,5 @@
 - Clearing your browser's site data deletes the games saved on that device (not the server's).
 - The server keeps at most 100 saved games; delete some from **Load Game** to make room.
 - After an update, games saved with an older version may not load (games saved with 0.6.0 do not load in 0.8.0
-  or later; games saved with 0.8.0 or later load in 0.12.0).
+  or later; games saved with 0.8.0 or later load in 1.0.0).
 - On the smallest island maps, a war that drags on can stall once both islands run out of wood.
