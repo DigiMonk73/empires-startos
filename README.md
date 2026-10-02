@@ -53,7 +53,7 @@ atlases under `baked/` keep their file names from one version to the next, so br
 
 | Volume | Mount point | Contents |
 | ------ | ----------- | -------- |
-| `main` | `/data`     | `saves/` — games saved **on the server** (one `<id>.save` file each; `DATA_DIR=/data`). Empty until a player saves there. |
+| `main` | `/data`     | `saves/` — games saved **on the server** (one `<id>.save` file each; `DATA_DIR=/data`). Empty until a player saves there. `desync/` — reports from multiplayer games that fell out of step (JSON, newest 50), for debugging. |
 
 Players choose where a game is saved: **This device** (the browser's own storage — including the rolling
 autosave) or **Server** (this volume, shared by everyone who opens the interface). A save file is the game's own
@@ -96,7 +96,8 @@ binary frames are game packets. The server keeps each started room's packets in 
 whose connection drops — every page drops once, loading the game right after the start — can rejoin within 30 s
 with a token it was given and replay the game from the start; after 30 s, or when it quits, the room hears it left
 and a computer takes its seat. Nothing is
-written to disk. Implementation: `upstream-project/server/relay.mjs`; protocol notes in
+written to disk except, when a game falls out of step, a small report under `/data/desync/`. The input delay is set
+by the host from the members' measured round trips (200 ms on a LAN, up to 600 ms over Tor). Implementation: `upstream-project/server/relay.mjs`; protocol notes in
 `upstream-project/docs/MULTIPLAYER.md`.
 
 | Interface | ID   | Type | Container port | Purpose                     |
