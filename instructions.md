@@ -86,6 +86,20 @@
 - The music follows the game — calm in peace, tense when enemy soldiers are in sight, driving in battle — in the
   style of your civilization; your units answer in its voice.
 
+### Multiplayer
+
+- Everyone opens the same Web Interface address (each on their own computer), chooses **Multiplayer** on the main
+  menu and types a name.
+- One player chooses **Host a game**: the setup screen is the skirmish setup, where a seat can be **Human** or a
+  computer. Share the four-letter room code shown at the top; each player who joins (by the code, or from the list)
+  takes the next Human seat. **Start Game** turns on when every Human seat has its player.
+- In the game, **F3** pauses and resumes the game for everyone, and **Enter** opens a chat box. The game runs at the
+  speed the host chose, and the menu doesn't pause it.
+- If a player's connection drops or their page reloads, they rejoin automatically within 30 seconds; meanwhile the
+  others see "Waiting for the other players…". After that a computer takes over their civilization and the game
+  goes on.
+- The Mac app can join too: on its Multiplayer screen, type this server's address.
+
 ### Saved games
 
 - **Save Game** asks where: **This device** (kept in the browser you play in) or **Server** (kept on your
@@ -96,7 +110,9 @@
 
 ## Limitations
 
-- No multiplayer yet — each player plays their own game against the computer.
+- Multiplayer games can't be saved yet, and a player away for more than 30 seconds can't come back into the game
+  (a computer has their seat).
+- Anyone who can open the address can see and join open multiplayer rooms (there are no room passwords).
 - Clearing your browser's site data deletes the games saved on that device (not the server's).
 - The server keeps at most 100 saved games; delete some from **Load Game** to make room.
 - After an update, games saved with an older version may not load (games saved with 0.6.0 do not load in 0.8.0

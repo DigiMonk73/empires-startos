@@ -72,7 +72,8 @@ None.
 
 One HTTP interface serves the game. It is not password-protected: anyone who can reach the address can load
 and play the game, and can list, load, overwrite and delete the games saved **on the server** (games saved on a
-player's own device are not visible to anyone else). The server holds nothing else.
+player's own device are not visible to anyone else), and can see and join open multiplayer rooms. The server holds
+nothing else.
 
 The same port answers the saved-games API used by the game:
 
@@ -86,6 +87,15 @@ The same port answers the saved-games API used by the game:
 Limits: 16 MB per save and 100 saves on the server (a new save beyond that is refused until some are deleted);
 each write goes to a temporary file of its own first, so a save is never left half-written and two players saving
 the same game at once don't clash.
+
+Multiplayer (1.1.0) uses a WebSocket on the same port, `/ws` (under the interface's path prefix, if any): a
+lobby of rooms (4-letter codes, up to 8 members) and a relay. The server never runs a game — every player's browser
+runs the whole simulation in lockstep and the server forwards their per-tick command packets within a room. Text
+frames carry the JSON lobby (`hello`, `list`, `create`, `join`, `setup`, `start`, `rejoin`, `pause`, `chat`, `leave`);
+binary frames are game packets. A member whose connection drops keeps its seat 30 s (its packets wait on the server)
+and rejoins with a token it was given; after that the room hears it left and a computer takes the seat. Nothing is
+written to disk. Implementation: `upstream-project/server/relay.mjs`; protocol notes in
+`upstream-project/docs/MULTIPLAYER.md`.
 
 | Interface | ID   | Type | Container port | Purpose                     |
 | --------- | ---- | ---- | -------------- | --------------------------- |
@@ -120,7 +130,8 @@ restore. Games saved on a player's device (and the autosave) live in that browse
 
 ## Limitations and Differences
 
-- Single-player against computer opponents only; multiplayer is not available yet.
+- Multiplayer (since 1.1.0) runs in lockstep in the players' browsers; the server only relays. Multiplayer games
+  can't be saved yet; a member away longer than 30 s is replaced by a computer for good; rooms have no passwords.
 - Games saved on **This device** are stored per browser (IndexedDB): clearing site data, or switching browser or
   device, loses them. Save on the **Server** to keep a game across devices.
 - Server saves have no accounts: everyone who can open the interface shares one list of server saves.
