@@ -84,7 +84,8 @@ The same port answers the saved-games API used by the game:
 | `DELETE /api/saves/<id>` | Deletes a save |
 
 Limits: 16 MB per save and 100 saves on the server (a new save beyond that is refused until some are deleted);
-writes go to a temporary file first, so a save is never left half-written.
+each write goes to a temporary file of its own first, so a save is never left half-written and two players saving
+the same game at once don't clash.
 
 | Interface | ID   | Type | Container port | Purpose                     |
 | --------- | ---- | ---- | -------------- | --------------------------- |

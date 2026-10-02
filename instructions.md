@@ -19,9 +19,12 @@
      years), Conquest, Score (first to a target score) or Time Limit (highest score when the time runs out).
    - **Starting age:** Default, Nomad (no Town Center — build one first), Tool, Bronze, Iron or Post-Iron (every
      technology already researched).
+   - **Resources:** Default, Medium, High or Death Match (20,000 food and wood, 10,000 gold and 5,000 stone).
    - **Population:** the unit limit, 25 to 200.
    - **Full Tech Tree:** every civilization gets everything except the Fire Galley, and no civilization bonuses.
    - **Reveal map.**
+   - **Teams:** with every player on one team the game would be won before it began, so **Start Game** stays
+     greyed out until someone is on another team.
 
 ### Computer opponents
 
@@ -48,7 +51,7 @@
   Wonder or one relic stops it. A unit standing beside a Ruin or an Artifact claims it; it changes hands only while
   none of its owner's units stand by it. Each one held is worth 10 points.
 - **Tech Tree** (top bar) shows what you have researched and built, what you can get now, and what your
-  civilization lacks.
+  civilization lacks. A research button's tooltip says what the technology does.
 - Each civilization builds in its own style — Egyptian, Babylonian, Greek, Asian or Roman — and its buildings
   change as it advances through the ages. The setup screen shows each civilization's emblem.
 - **Hills:** the ground rises and falls on every map (most on Highland and Hill Country). Units striking down at a
@@ -59,6 +62,8 @@
   transport with soldiers to board it, and land with a loaded transport to land them there (or press **Unload**).
   Trade boats sell food, wood or stone at another player's Dock for gold.
 - **Repair:** right-click your damaged building, ship or siege weapon with villagers (or press **Repair**).
+- **Towers** shoot the nearest enemy unit in range; select them and right-click an enemy unit to choose their
+  target.
 - **Menu** (top right, or F10) pauses the game and offers game speed, sound, **Achievements** (scores and graphs
   so far), **Options**, **Keys**, **Save Game**, **Load Game**, restart, resign and quit.
 - **Options** (main menu and game menu): sound volumes, scrolling speed, edge scrolling, the speed a new game
@@ -72,8 +77,9 @@
 - Messages at the upper left tell you when anyone reaches a new age, when your units or buildings are attacked
   out of sight (the spot flashes on the minimap), when a Wonder is started, and why an order was refused. Click a
   message, or press **Home**, to go there.
-- **Keys:** F1 lists them all. Also Space (go to the selection), H (Town Center), . (idle villager), + / − (game
-  speed), F3 (pause), F4 or the S button (score list) and F11 (time, speed and population).
+- **Keys:** F1 lists them all. Esc closes the window on top. Also Space (go to the selection), H (Town Center),
+  . (idle villager), + / − (game speed), F3 (pause), F4 or the S button (score list) and F11 (time, speed and
+  population).
 - After a game, **Results** has a **Timeline**: graphs of every player's score, population, military, villagers
   and resources, with the moment each reached a new age.
 - **Help** and **Credits** are on the main menu.
@@ -94,5 +100,5 @@
 - Clearing your browser's site data deletes the games saved on that device (not the server's).
 - The server keeps at most 100 saved games; delete some from **Load Game** to make room.
 - After an update, games saved with an older version may not load (games saved with 0.6.0 do not load in 0.8.0
-  or later; games saved with 0.8.0 or later load in 1.0.0).
+  or later; games saved with 0.8.0 or later load in 1.0.0, and games saved with 1.0.0 load in 1.0.1).
 - On the smallest island maps, a war that drags on can stall once both islands run out of wood.
