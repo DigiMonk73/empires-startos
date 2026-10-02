@@ -95,9 +95,9 @@
   takes the next Human seat. **Start Game** turns on when every Human seat has its player.
 - In the game, **F3** pauses and resumes the game for everyone, and **Enter** opens a chat box. The game runs at the
   speed the host chose, and the menu doesn't pause it.
-- If a player's connection drops or their page reloads, they rejoin automatically within 30 seconds; meanwhile the
-  others see "Waiting for the other players…". After that a computer takes over their civilization and the game
-  goes on.
+- If a player leaves — closes the page, reloads it, or loses the connection — a computer takes over their
+  civilization at once and the game goes on for the others (the one who left can't come back into that game yet).
+  While a player's orders are late, the others see "Waiting for the other players…".
 - The Mac app can join too: on its Multiplayer screen, type this server's address.
 
 ### Saved games
@@ -110,8 +110,8 @@
 
 ## Limitations
 
-- Multiplayer games can't be saved yet, and a player away for more than 30 seconds can't come back into the game
-  (a computer has their seat).
+- Multiplayer games can't be saved yet, and a player who leaves can't come back into the game (a computer has
+  their seat). The in-game menu has no speed, Save, Load or Restart in multiplayer.
 - Anyone who can open the address can see and join open multiplayer rooms (there are no room passwords).
 - Clearing your browser's site data deletes the games saved on that device (not the server's).
 - The server keeps at most 100 saved games; delete some from **Load Game** to make room.

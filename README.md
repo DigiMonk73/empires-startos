@@ -92,8 +92,9 @@ Multiplayer (1.1.0) uses a WebSocket on the same port, `/ws` (under the interfac
 lobby of rooms (4-letter codes, up to 8 members) and a relay. The server never runs a game — every player's browser
 runs the whole simulation in lockstep and the server forwards their per-tick command packets within a room. Text
 frames carry the JSON lobby (`hello`, `list`, `create`, `join`, `setup`, `start`, `rejoin`, `pause`, `chat`, `leave`);
-binary frames are game packets. A member whose connection drops keeps its seat 30 s (its packets wait on the server)
-and rejoins with a token it was given; after that the room hears it left and a computer takes the seat. Nothing is
+binary frames are game packets. Right after the start every member's page loads the game and rejoins with a token
+it was given (its seat is held 30 s, its packets wait on the server); a member that drops once it has played is
+announced to the room at once and a computer takes its seat (it can't rejoin a game in progress yet). Nothing is
 written to disk. Implementation: `upstream-project/server/relay.mjs`; protocol notes in
 `upstream-project/docs/MULTIPLAYER.md`.
 
@@ -131,7 +132,8 @@ restore. Games saved on a player's device (and the autosave) live in that browse
 ## Limitations and Differences
 
 - Multiplayer (since 1.1.0) runs in lockstep in the players' browsers; the server only relays. Multiplayer games
-  can't be saved yet; a member away longer than 30 s is replaced by a computer for good; rooms have no passwords.
+  can't be saved yet; a member that leaves a game in progress is replaced by a computer for good; rooms have no
+  passwords.
 - Games saved on **This device** are stored per browser (IndexedDB): clearing site data, or switching browser or
   device, loses them. Save on the **Server** to keep a game across devices.
 - Server saves have no accounts: everyone who can open the interface shares one list of server saves.
