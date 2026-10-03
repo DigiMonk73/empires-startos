@@ -1,0 +1,85 @@
+# Builds the StartOS package (.s9pk) and attaches it to a GitHub release.
+# It runs when the game repository pushes a "Pin Empires <commit>" update to main,
+# and when someone starts it by hand. It does not publish to the Start9 registry.
+name: StartOS package
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: package-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  s9pk:
+    name: Build the package
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && startsWith(github.event.head_commit.message, 'Pin Empires'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Git can read this checkout
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config --global --add safe.directory "$GITHUB_WORKSPACE/upstream-project"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+      - name: Tools the packager needs
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq squashfs-tools squashfs-tools-ng
+          curl -fsSL -o start-cli "https://github.com/Start9Labs/start-technologies/releases/download/start-cli/v2.1.0/start-cli_x86_64-linux"
+          echo "57f8fb6fdabe68755511d8838a73c47e4d7da3fa65428272b5eec650f2423cd0  start-cli" | sha256sum -c
+          chmod +x start-cli
+          sudo mv start-cli /usr/local/bin/start-cli
+          start-cli --version
+      - name: Build the package program
+        run: |
+          npm ci
+          npm run check
+          npm run build
+      - name: Signing key
+        env:
+          STARTOS_BUILD_KEY: ${{ secrets.STARTOS_BUILD_KEY }}
+        run: |
+          dir="${GITHUB_WORKSPACE}/../.startos"
+          mkdir -p "$dir"
+          printf 'schema: 1\n' > "$dir/config.yaml"
+          if [ -n "$STARTOS_BUILD_KEY" ]; then
+            printf '%s' "$STARTOS_BUILD_KEY" > "$dir/build.key.pem"
+            echo "Using the saved signing key."
+          else
+            HOME="${GITHUB_WORKSPACE}/.." start-cli init-key
+            cp "$dir/id.key.pem" "$dir/build.key.pem"
+            echo "::warning title=Throwaway signing key::Add secret STARTOS_BUILD_KEY on DigiMonk73/empires-startos (the text of your .startos/build.key.pem). Without the same key, StartOS will not install this file as an update over the package already on the box."
+          fi
+          chmod 600 "$dir/build.key.pem"
+      - name: Build both packages
+        run: make
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s9pk
+          path: empires_*.s9pk
+          if-no-files-found: error
+      - name: Attach the packages to a release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="pkg-${GITHUB_SHA::7}"
+          notes="StartOS packages from this commit of the wrapper. Install the aarch64 file on an Apple Silicon box and the x86_64 file on an Intel box. This is not published to the Start9 registry."
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" empires_*.s9pk --clobber
+          else
+            gh release create "$tag" empires_*.s9pk --title "Empires for StartOS (${GITHUB_SHA::7})" --notes "$notes"
+          fi

@@ -1,8 +1,9 @@
 # Updating the upstream version
 
-Upstream is the Empires game repository, included as the `upstream-project` git submodule (a local path while
-the repos have no GitHub home). The package builds the image from `upstream-project/Dockerfile`, so the
-submodule commit *is* the pin.
+Upstream is the Empires game repository, included as the `upstream-project` git submodule
+(`https://github.com/DigiMonk73/Empires.git`). The package builds the image from `upstream-project/Dockerfile`,
+so the submodule commit *is* the pin. A push to `main` whose message starts with `Pin Empires` is the game
+repository moving that pin; GitHub then builds the `.s9pk` and attaches it to a release.
 
 ## Determining the upstream version
 

@@ -5,10 +5,9 @@ export const manifest = setupManifest({
   id: 'empires',
   title: 'Empires',
   license: 'MIT',
-  // TODO(user): no GitHub home chosen yet — the repos are local-only for now (see AGENTS.local.md).
-  packageRepo: 'https://github.com/REPLACE_ME/empires-startos',
-  upstreamRepo: 'https://github.com/REPLACE_ME/empires',
-  marketingUrl: 'https://github.com/REPLACE_ME/empires',
+  packageRepo: 'https://github.com/DigiMonk73/empires-startos',
+  upstreamRepo: 'https://github.com/DigiMonk73/Empires',
+  marketingUrl: 'https://github.com/DigiMonk73/Empires',
   donationUrl: null,
   description: { short, long },
   volumes: ['main'],
