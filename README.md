@@ -133,8 +133,9 @@ restore. Games saved on a player's device (and the autosave) live in that browse
 
 ## Limitations and Differences
 
-- Multiplayer (since 1.1.0) runs in lockstep in the players' browsers; the server only relays. Multiplayer games
-  can't be saved yet; a member away longer than 30 s is replaced by a computer for good; rooms have no passwords.
+- Multiplayer (since 1.1.0) runs in lockstep in the players' browsers; the server only relays. The host saves a
+  multiplayer game on the server, and a load restarts the room from that save. Guests have no Save or Load. Speed
+  and Restart stay hidden. A member away longer than 30 s is replaced by a computer for good. Rooms have no passwords.
 - Games saved on **This device** are stored per browser (IndexedDB): clearing site data, or switching browser or
   device, loses them. Save on the **Server** to keep a game across devices.
 - Server saves have no accounts: everyone who can open the interface shares one list of server saves.

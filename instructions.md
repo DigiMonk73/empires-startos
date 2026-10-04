@@ -110,8 +110,9 @@
 
 ## Limitations
 
-- Multiplayer games can't be saved yet, and a player away more than 30 seconds can't come back into that game (a
-  computer has their seat). The in-game menu has no speed, Save, Load or Restart in multiplayer.
+- The host saves a multiplayer game on the server, and loading that save restarts the room from it. Guests have
+  no Save or Load. Speed and Restart stay hidden. A player away more than 30 seconds can't come back into that
+  game (a computer has their seat).
 - Anyone who can open the address can see and join open multiplayer rooms (there are no room passwords).
 - Clearing your browser's site data deletes the games saved on that device (not the server's).
 - The server keeps at most 100 saved games; delete some from **Load Game** to make room.
