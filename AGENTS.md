@@ -18,5 +18,8 @@ Work this package's `TODO.md` from top to bottom. Keep `README.md` (technical re
 
 - The app is our own code: change gameplay in `upstream-project/` (the Empires repo), commit there, then move
   the submodule here — never edit files inside the submodule checkout from this repo.
-- `make` needs the lab start-cli first on PATH: `PATH=/Users/b1ackswan/code/btctx-vm-lab/bin:$PATH make arm`.
+- `make arm` needs start-cli 2.x on PATH (2.3.0 is the default since 2026-10-08). From Claude's shell, Docker needs a
+  temporary `DOCKER_CONFIG` holding `{}` and a `cli-plugins` link to `~/.docker/cli-plugins`, plus `DOCKER_HOST` from
+  `docker context inspect` (the Desktop credential helper hangs there); without the link `s9pk pack` fails with
+  "unknown shorthand flag: 'f'".
 - `LICENSE` and `icon.svg` are symlinks into `upstream-project/`; update them upstream.
